@@ -18,15 +18,14 @@ export default class QueryComponent extends PureComponent {
                           style={{
                             width: 128,
                             height: 193,
-                            backgroundImage: `url(${book.imageLinks
-                              .smallThumbnail}`
+                            backgroundImage: `url(${book.imageLinks?book.imageLinks.smallThumbnail:null}`
                           }}
                         />
                         <div className="book-shelf-changer">
                           <select
                             id={book.id}
                             onChange={this.props.select}
-                            value={"move"}
+                            value={book.shelf?book.shelf:'none'}
                           >
                             <option value="move" disabled>
                               Move to...
